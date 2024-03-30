@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <form name="forms">
+        <input type="number" name="inpV" onchange="tempCon()">
+    <select name="inpOp" onchange="tempCon()">
+        <option value="c">Celsius</option>
+        <option value="k">Kelvin</option>
+        <option value="f">Fahrenheit</option>
+    </select>
+    <br>
+    <input type="number" name="outV" onchange="tempCon()">
+    <select name="outOp" onchange="tempCon()">
+        <option value="c">Celsius</option>
+        <option value="k">Kelvin</option>
+        <option value="f">Fahrenheit</option>
+    </select>
+    </form>
+    <script>
+        function tempCon() {
+            let inpV = parseFloat(document.forms.elements['inpV'].value);
+            let inpOp = document.forms.elements['inpOp'].value;
+            let outOp = document.forms.elements['outOp'].value;
+            let result;
+            if (inpOp == 'c' && outOp == 'k') {
+                result = inpV + 273.15;
+            } else if (inpOp == 'k' && outOp == 'c') {
+                result = inpV - 273.15;
+            } else if (inpOp == 'c' && outOp == 'f') {
+                result = inpV * (9 / 5) + 32;
+            } else if (inpOp == 'f' && outOp == 'c') {
+                result = (inpV - 32) * (5 / 9);
+            } else if (inpOp == 'k' && outOp == 'f') {
+                result = (inpV - 273.15) * (9 / 5) + 32;
+            } else if (inpOp == 'f' && outOp == 'k') {
+                result = (inpV - 32) * (5 / 9) + 273.15;
+            } else {
+                result = inpV;
+            }
+
+            document.forms.elements['outV'].value = result; // Set the output value with 2 decimal places
+        }
+    </script>
+</body>
+</html>

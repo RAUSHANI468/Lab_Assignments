@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greeting Message</title>
+</head>
+<body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var userName = prompt("Please enter your name:");
+    var now = new Date();
+    var hour = now.getHours();
+    var greeting = "";
+    
+    if (hour < 12) {
+        greeting = "Good morning";
+    } else if (hour < 18) {
+        greeting = "Good afternoon";
+    } else {
+        greeting = "Good evening";
+    }
+    
+    var greetingMessage = document.createElement("div");
+    greetingMessage.textContent = greeting + ", " + userName + "!";
+    greetingMessage.style.cursor = "pointer";
+    
+    greetingMessage.addEventListener("click", function() {
+        greetingMessage.style.display = "none";
+    });
+    
+    document.body.appendChild(greetingMessage);
+});
+</script>
+
+</body>
+</html>

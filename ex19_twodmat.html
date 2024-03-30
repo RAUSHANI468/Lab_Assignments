@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-D matrix of alternate color</title>
+    <style>
+        .even{
+            background-color: blue;
+
+        }
+        .odd{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Two-D matrix of alternate color</h2>
+    <table id="matrix" border="1" cellspacing="0"></table>
+        <script>
+           
+           let rs=prompt("enter no of rows: ");
+           let  cs=prompt("enter no of column: ");
+            let matrixTable= document.getElementById("matrix");
+            for (let i = 0; i<rs;i++) {
+                let r=document.createElement("tr");
+                    for (let j = 0; j<cs;j++) {
+                        let c=document.createElement("td");                    
+                        c.append(prompt());
+                        if((i+j)%2==0){
+                            c.className="even";                       
+                        }
+                        else{
+                            c.className="odd";                         
+                        }                      
+                       r.appendChild(c);
+                    }
+                    matrixTable.appendChild(r);               
+            }
+        </script>
+    
+</body>
+</html>

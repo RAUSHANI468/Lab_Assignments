@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Template</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: azure;
+        }
+        header{
+            background-color: rgb(14, 112, 112);
+            align-items: center;
+            padding: 10px;
+            color: white;
+            
+        }
+        .container{
+            border: 2px solid #333;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .column{
+            float: left;
+            width: 50%;
+           padding: 20px;
+           
+            box-sizing: border-box;
+            
+            
+        }
+        .column:first-child {
+            border-right: none; /* Remove border on the right side of the first column */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <div class="container">
+        <div class="column">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet neque non lectus varius fermentum.</p>
+        </div>
+        <div class="column">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet neque non lectus varius fermentum.</p>
+        </div>
+    </div>
+</body>
+</html>

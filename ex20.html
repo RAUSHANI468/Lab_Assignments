@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body>
+    <!-- buttons to start and stop timer -->
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <!-- initial the timer starts from 0:00 -->
+    <!-- display for the timer -->
+    <div id="timer">0:00</div>
+    <script>
+        // variables to store timer information 
+        let timer;
+        let startTime;
+        let running=false;
+        //function to start timer
+        function startTimer(){
+            running=true; //status of timer
+            startTime=Date.now();//record the current timmer
+            timer=setInterval(updateTimer,1000); //timer starts from interval of 1s
+        }
+        function stopTimer(){
+            running=false;
+            clearInterval(timer); //stop the timer
+            
+        }
+        function updateTimer() {
+            let elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            let minutes = Math.floor(elapsedTime / 60);
+            let seconds = elapsedTime % 60;
+            document.getElementById("timer").textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+        }
+
+        document.getElementById("startBtn").addEventListener("click",function(){
+            if(!running){
+                startTimer();
+            }
+        });
+        document.getElementById("stopBtn").addEventListener("click",function(){
+            if(running){
+                stopTimer();
+            }
+        });
+
+    </script>
+</body>
+</html>
